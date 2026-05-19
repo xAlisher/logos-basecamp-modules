@@ -17,6 +17,10 @@ name: Release __MODULE__
 on:
   workflow_dispatch: {}
 
+# Forked repos default to a read-only GITHUB_TOKEN.
+permissions:
+  contents: write
+
 jobs:
   release:
     uses: ./.github/workflows/_release-module.yml

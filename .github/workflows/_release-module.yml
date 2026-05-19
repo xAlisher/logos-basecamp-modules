@@ -11,9 +11,8 @@ name: _release-module
 # `uses: ./.github/workflows/_release-module.yml`.
 #
 # ── Signing modes ────────────────────────────────────────────────────
-# This template ships with signing DISABLED (`signing_mode: none`) so a
-# fresh fork publishes working — if unsigned — releases out of the box.
-# Turn on signing when you're ready:
+# This catalog publishes UNSIGNED (`signing_mode: none`) — matching the
+# empty `trustedSigners` in logos-repo.json. Turn on signing when ready:
 #
 #   inline   — `lgx sign` runs in the workflow using a JWK secret.
 #              1. Generate an Ed25519 JWK private key.
@@ -36,6 +35,11 @@ on:
         description: "Path to the module submodule (e.g. submodules/<repo>)."
         type: string
         required: true
+
+# Forked repos default to a read-only GITHUB_TOKEN; the downstream
+# release job needs to create releases / upload assets.
+permissions:
+  contents: write
 
 jobs:
   release:

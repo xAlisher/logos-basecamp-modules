@@ -1,12 +1,12 @@
 name: Release all modules
 
 # Umbrella workflow: releases every submodule in this catalog in
-# parallel. Useful for the initial bootstrap right after you fork and
-# add your modules, and for coordinated "everything at once" releases.
+# parallel. Useful for the initial bootstrap and for coordinated
+# "everything at once" releases.
 #
-# Unlike a hand-maintained build matrix, the module list is DISCOVERED
-# from `.gitmodules` at run time — add or remove a submodule and this
-# workflow tracks it automatically, no edits here ever needed.
+# The module list is DISCOVERED from `.gitmodules` at run time — add or
+# remove a submodule and this workflow tracks it automatically, no edits
+# here ever needed (the previous hand-maintained matrix is gone).
 #
 # Each module is released through the same _release-module.yml local
 # reusable workflow the per-module files use, so signing config stays
@@ -15,6 +15,10 @@ name: Release all modules
 
 on:
   workflow_dispatch: {}
+
+# Forked repos default to a read-only GITHUB_TOKEN.
+permissions:
+  contents: write
 
 jobs:
   discover:

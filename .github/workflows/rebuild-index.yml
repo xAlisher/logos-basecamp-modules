@@ -6,8 +6,7 @@ name: Rebuild index
 # schedule as a catch-up so a missed dispatch can't strand the catalog,
 # and can be kicked manually from the Actions UI.
 #
-# This is a thin passthrough to the versioned action — there is nothing
-# to configure here.
+# Thin passthrough to the versioned action — nothing to configure here.
 
 on:
   workflow_dispatch: {}
@@ -15,6 +14,10 @@ on:
     types: [rebuild-index]
   schedule:
     - cron: '17 */6 * * *'
+
+# Forked repos default to a read-only GITHUB_TOKEN.
+permissions:
+  contents: write
 
 jobs:
   rebuild:

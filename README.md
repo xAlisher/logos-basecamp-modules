@@ -100,6 +100,10 @@ one place:
   index-rebuilder. Auto-triggered after each release; also runs on a
   6-hourly catch-up schedule.
 
+Every workflow declares `permissions: contents: write` because a
+forked repo's default `GITHUB_TOKEN` is read-only, and the release job
+must create releases / upload assets.
+
 To change signing for the whole catalog, edit **`_release-module.yml`
 only** — the per-module callers and the umbrella never need touching.
 
