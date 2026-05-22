@@ -36,6 +36,10 @@
 
 set -euo pipefail
 
+# Resolve our own absolute path BEFORE cd'ing away — print_usage seds
+# this file, and a relative $0 wouldn't resolve from the repo root.
+SCRIPT_PATH="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)/$(basename "${BASH_SOURCE[0]}")"
+
 cd "$(git rev-parse --show-toplevel)"
 
 WORKFLOW_DIR=".github/workflows"
@@ -45,8 +49,9 @@ die() { echo "error: $*" >&2; exit 1; }
 print_usage() {
   # Echo the comment header (lines 2..first blank), stripping the `# `
   # prefix. Two plain substitutions — `\|` alternation isn't portable
-  # to the BSD sed macOS ships.
-  sed -n '2,/^$/p' "$0" | sed -e 's/^# //' -e 's/^#$//'
+  # to the BSD sed macOS ships. Reads SCRIPT_PATH (absolute) rather
+  # than $0, which would be relative to the pre-cd directory.
+  sed -n '2,/^$/p' "$SCRIPT_PATH" | sed -e 's/^# //' -e 's/^#$//'
 }
 
 # ── flag + positional split ──────────────────────────────────────────
@@ -104,7 +109,9 @@ latest_run_id() {
 
 # Poll until a run newer than $2 appears for workflow $1, then watch it.
 # `gh workflow run` returns no run id, so we diff against the pre-trigger
-# newest. Best-effort — gives up cleanly if the run never registers.
+# newest. Returns non-zero if the run never registers within the window
+# — the trigger itself still succeeded, but a caller that asked for
+# --watch (e.g. from automation) must be able to tell watching failed.
 follow_new_run() {
   local wf="$1" before="$2" id="" tries=0
   echo "==> waiting for the run to register…"
@@ -117,7 +124,9 @@ follow_new_run() {
     fi
     tries=$((tries + 1))
   done
-  echo "    couldn't resolve the new run — use './scripts/catalog.sh status'." >&2
+  echo "    workflow was triggered, but couldn't resolve the new run to" >&2
+  echo "    watch — check it with './scripts/catalog.sh status'." >&2
+  return 1
 }
 
 # Trigger a workflow file; optionally follow the run it created.
