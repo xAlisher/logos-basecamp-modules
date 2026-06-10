@@ -38,3 +38,6 @@
 	path = submodules/radio-basecamp
 	url = https://github.com/xAlisher/radio-basecamp.git
 	branch = main
+[submodule "submodules/ia-basecamp"]
+	path = submodules/ia-basecamp
+	url = https://github.com/xAlisher/ia-basecamp
