@@ -31,3 +31,6 @@
 [submodule "submodules/keycard-basecamp"]
 	path = submodules/keycard-basecamp
 	url = https://github.com/xAlisher/keycard-basecamp
+[submodule "submodules/logos-zone-sequencer-module"]
+	path = submodules/logos-zone-sequencer-module
+	url = https://github.com/xAlisher/logos-zone-sequencer-module
