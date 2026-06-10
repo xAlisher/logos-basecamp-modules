@@ -1,0 +1,16 @@
+name: Release radio-ui (radio_ui)
+
+# Manually-triggered release for the radio QML UI module (subdir of radio-basecamp).
+
+on:
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    uses: ./.github/workflows/_release-module.yml
+    with:
+      module_path: submodules/radio-basecamp/radio_ui
+    secrets: inherit

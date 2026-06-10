@@ -34,3 +34,7 @@
 [submodule "submodules/logos-zone-sequencer-module"]
 	path = submodules/logos-zone-sequencer-module
 	url = https://github.com/xAlisher/logos-zone-sequencer-module
+[submodule "submodules/radio-basecamp"]
+	path = submodules/radio-basecamp
+	url = https://github.com/xAlisher/radio-basecamp.git
+	branch = main
