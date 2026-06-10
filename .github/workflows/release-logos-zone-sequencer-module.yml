@@ -23,7 +23,10 @@ permissions:
 
 jobs:
   release:
-    uses: ./.github/workflows/_release-module.yml
+    # zone-sequencer only builds on linux-amd64 (Rust + circuits x86-only)
+    uses: logos-co/logos-modules-release-action/.github/workflows/release.yml@v1
     with:
       module_path: submodules/logos-zone-sequencer-module
+      variants: linux-amd64
+      signing_mode: none
     secrets: inherit
