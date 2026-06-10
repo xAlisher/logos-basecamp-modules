@@ -1,8 +1,8 @@
 name: Release radio (radio_module)
 
-# Manually-triggered release for the radio core module. radio-basecamp is a
-# two-module repo (radio_module + radio_ui), so module_path points into the
-# subdir that holds the flake + metadata.json. See release-radio-ui.yml for the UI.
+# radio-basecamp is a two-module repo (radio_module + radio_ui); module_path points into the subdir.
+# linux-amd64 only — hosting needs MediaMTX + Tor host + the C++/Qt build env (see radio issue #18 for a
+# listen-only macOS/arm flavor). Restriction mirrors zone-sequencer.
 
 on:
   workflow_dispatch: {}
@@ -12,7 +12,9 @@ permissions:
 
 jobs:
   release:
-    uses: ./.github/workflows/_release-module.yml
+    uses: logos-co/logos-modules-release-action/.github/workflows/release.yml@v1
     with:
       module_path: submodules/radio-basecamp/radio_module
+      variants: linux-amd64
+      signing_mode: none
     secrets: inherit
