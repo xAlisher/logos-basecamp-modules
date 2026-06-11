@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "name": "xalisher-modules",
   "displayName": "xAlisher's Logos Modules",
-  "description": "Keeper, Beacon, Stash, Cord, Keycard — built on Logos Basecamp.",
+  "description": "Keeper, Beacon, Stash, Cord, Keycard, Radio, Receiver — built on Logos Basecamp.",
   "homepage": "https://github.com/xAlisher/logos-modules-release",
   "indexUrl": "https://github.com/xAlisher/logos-modules-release/releases/download/index/index.json",
   "trustedSigners": []
