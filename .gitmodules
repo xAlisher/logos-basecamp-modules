@@ -41,3 +41,7 @@
 [submodule "submodules/receiver-basecamp"]
 	path = submodules/receiver-basecamp
 	url = https://github.com/xAlisher/receiver-basecamp
+[submodule "submodules/ia-basecamp"]
+	path = submodules/ia-basecamp
+	url = https://github.com/xAlisher/ia-basecamp
+	branch = main
