@@ -45,3 +45,6 @@
 	path = submodules/ia-basecamp
 	url = https://github.com/xAlisher/ia-basecamp
 	branch = main
+[submodule "submodules/booth-basecamp"]
+	path = submodules/booth-basecamp
+	url = https://github.com/xAlisher/booth-basecamp
