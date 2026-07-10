@@ -2,8 +2,8 @@
   "schemaVersion": 1,
   "name": "xalisher-modules",
   "displayName": "xAlisher's Logos Modules",
-  "description": "Booth (broadcast) + Receiver (listen) — decentralized Logos radio over Tor. Built on Logos Basecamp.",
-  "homepage": "https://github.com/xAlisher/logos-modules-release",
-  "indexUrl": "https://github.com/xAlisher/logos-modules-release/releases/download/index/index.json",
+  "description": "Logos Basecamp modules by xAlisher — archive (Internet Archive preservation), radio/receiver (Tor radio), and more.",
+  "homepage": "https://modules.alisher.xyz",
+  "indexUrl": "https://github.com/xAlisher/logos-basecamp-modules/releases/download/index/index.json",
   "trustedSigners": []
 }
