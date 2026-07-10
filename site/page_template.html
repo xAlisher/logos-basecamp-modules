@@ -1,0 +1,174 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Basecamp Modules by Alisher</title>
+<meta name="description" content="A Logos Basecamp module catalog — install as a repository, or grab standalone modules from GitHub.">
+<style>
+:root{
+  --bg:#0e0e11; --bg2:#131317; --surface:#1a1a20; --surface2:#20202a;
+  --border:#2a2a35; --border2:#343442;
+  --text:#ececf1; --muted:#9797a6; --faint:#6b6b7a;
+  --accent:#8b7cff; --accent2:#a99bff; --accent-dim:#8b7cff22;
+  --green:#37d39b; --green-dim:#37d39b1e; --amber:#e6b566; --amber-dim:#e6b5661e;
+  --radius:14px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:radial-gradient(1200px 600px at 50% -200px,#1a1830 0%,var(--bg) 60%);
+  color:var(--text);font:15px/1.55 ui-sans-serif,-apple-system,"Segoe UI",Inter,Roboto,sans-serif;
+  -webkit-font-smoothing:antialiased;min-height:100vh}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:1080px;margin:0 auto;padding:0 20px}
+
+/* header */
+header{position:sticky;top:0;z-index:10;background:rgba(14,14,17,.72);backdrop-filter:blur(12px);
+  border-bottom:1px solid var(--border)}
+.hbar{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:14px 0}
+.hleft{display:flex;align-items:center;gap:13px}
+.avatar{width:38px;height:38px;flex:none;border-radius:50%;background:#ff0079;display:block;
+  box-shadow:0 0 0 1px #ffffff14,0 4px 16px -4px #ff0079aa;transition:transform .15s}
+.avatar:hover{transform:scale(1.06)}
+.brand{display:flex;flex-direction:column;gap:2px}
+.brand h1{margin:0;font-size:18px;font-weight:650;letter-spacing:-.01em}
+.brand span{color:var(--muted);font-size:12.5px}
+.dl{display:inline-flex;align-items:center;gap:8px;background:linear-gradient(180deg,#ff8a2b,#f5720a);color:#fff;
+  padding:10px 16px;border-radius:10px;font-weight:600;font-size:14px;white-space:nowrap;
+  box-shadow:0 4px 18px -6px #f5720a;transition:transform .12s,box-shadow .12s}
+.dl:hover{transform:translateY(-1px);box-shadow:0 8px 26px -6px #ff8a2b}
+
+/* install hero */
+.hero{padding:40px 0 22px;display:flex;gap:30px;align-items:center;flex-wrap:wrap}
+.hero-main{flex:1;min-width:300px;order:2}
+.hero h2{font-size:26px;margin:0 0 8px;letter-spacing:-.02em}
+.hero p{color:var(--muted);margin:0 0 18px;max-width:600px}
+.qr{flex:none;order:1;display:flex;flex-direction:column;align-items:center;gap:9px}
+.qr-box{width:154px;height:154px;background:#fff;border-radius:14px;padding:11px;box-shadow:0 10px 34px -12px #000b}
+.qr-box svg{width:100%;height:100%;display:block}
+.qr-box svg path{fill:#0e0e11}
+.qr-cap{font-size:12px;color:var(--muted)}
+.install{background:linear-gradient(180deg,var(--surface2),var(--surface));border:1px solid var(--border2);
+  border-radius:var(--radius);padding:20px}
+.install .step{color:var(--muted);font-size:13.5px;margin-bottom:12px}
+.install .step b{color:var(--text);font-weight:600}
+.copyrow{display:flex;gap:10px;align-items:stretch}
+.url{flex:1;display:flex;align-items:center;background:var(--bg2);border:1px solid var(--border2);
+  border-radius:10px;padding:0 14px;font-family:ui-monospace,SFMono-Regular,Menlo,monospace;
+  font-size:13.5px;color:var(--accent2);overflow-x:auto;white-space:nowrap}
+.copy{background:var(--surface2);border:1px solid var(--border2);color:var(--text);border-radius:10px;
+  padding:11px 16px;font-weight:600;cursor:pointer;font-size:13.5px;white-space:nowrap;transition:.12s}
+.copy:hover{border-color:var(--accent);color:var(--accent2)}
+.copy.done{color:var(--green);border-color:var(--green)}
+
+/* sections */
+section{padding:30px 0}
+.sec-head{display:flex;align-items:baseline;gap:12px;margin-bottom:6px}
+.sec-head h2{font-size:19px;margin:0;letter-spacing:-.01em}
+.sec-head .count{color:var(--faint);font-size:13px}
+.sec-sub{color:var(--muted);font-size:13.5px;margin:0 0 18px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(310px,1fr));gap:16px}
+
+/* card */
+.card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);
+  padding:18px;display:flex;flex-direction:column;gap:12px;transition:border-color .15s,transform .15s,background .15s}
+.card:hover{border-color:var(--border2);background:var(--surface2);transform:translateY(-2px)}
+.card-top{display:flex;gap:13px;align-items:flex-start}
+.ic{width:46px;height:46px;flex:none;border-radius:11px;background:var(--bg2);border:1px solid var(--border2);
+  display:flex;align-items:center;justify-content:center;overflow:hidden}
+.ic img{width:100%;height:100%;object-fit:cover}
+.ic img.glyph{object-fit:contain;padding:11px;image-rendering:auto}
+.ic-fallback{font-size:22px}
+.card-head{flex:1;min-width:0}
+.title-row{display:flex;align-items:center;gap:8px;justify-content:space-between}
+.title-row h3{margin:0;font-size:16px;font-weight:640;letter-spacing:-.01em}
+.ver{color:var(--faint);font-size:12px;font-family:ui-monospace,monospace;flex:none}
+.pills{display:flex;flex-wrap:wrap;gap:6px;margin-top:7px}
+.pill{font-size:11px;font-weight:600;padding:3px 8px;border-radius:6px;line-height:1.3}
+.pill-universal{background:var(--green-dim);color:var(--green)}
+.pill-legacy{background:var(--amber-dim);color:var(--amber)}
+.pill-cat{background:var(--accent-dim);color:var(--accent2)}
+.bundle{display:flex;align-items:center;gap:6px;font-size:11.5px;color:var(--faint);margin-top:-2px}
+.bundle .b-lbl{text-transform:uppercase;letter-spacing:.04em}
+.bundle code{font-family:ui-monospace,monospace;color:var(--muted);background:var(--bg2);
+  border:1px solid var(--border2);border-radius:5px;padding:1px 6px;font-size:11px}
+.desc{margin:0;color:var(--muted);font-size:13.5px;flex:1}
+.uses{display:flex;align-items:center;flex-wrap:wrap;gap:6px}
+.uses-label{font-size:11px;text-transform:uppercase;letter-spacing:.04em;color:var(--faint);margin-right:2px}
+.chip{font-size:11.5px;padding:3px 9px;border-radius:20px;background:var(--bg2);border:1px solid var(--border2);color:var(--muted)}
+.chip-none{opacity:.6}
+.repo-link{display:inline-flex;align-items:center;gap:6px;align-self:flex-start;color:var(--accent2);
+  font-size:13px;font-weight:600;padding-top:2px}
+.repo-link .arr{transition:transform .15s}
+.repo-link:hover .arr{transform:translateX(3px)}
+
+/* footer */
+footer{border-top:1px solid var(--border);padding:26px 0 40px;color:var(--faint);font-size:13px;
+  display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
+footer a{color:var(--muted)}
+footer a:hover{color:var(--accent2)}
+@media(max-width:560px){.hbar{flex-direction:column;align-items:flex-start}.hero h2{font-size:22px}}
+</style>
+</head>
+<body>
+<header><div class="wrap hbar">
+  <div class="hleft">
+    <a class="avatar" href="https://alisher.xyz" target="_blank" rel="noopener" aria-label="alisher.xyz"></a>
+    <div class="brand"><h1>Basecamp Modules by Alisher</h1><span>Sovereign apps for Logos Basecamp</span></div>
+  </div>
+  <a class="dl" href="https://logos.co/basecamp" target="_blank" rel="noopener">⬇ Download Basecamp</a>
+</div></header>
+
+<main class="wrap">
+  <div class="hero">
+    <div class="qr">
+      <div class="qr-box">{{QR}}</div>
+      <div class="qr-cap">Scan for this page</div>
+    </div>
+    <div class="hero-main">
+      <h2>Install as a repository</h2>
+      <p>Add this catalog once in Basecamp and install the modules below with one click — Basecamp resolves versions and dependencies for you.</p>
+      <div class="install">
+        <div class="step"><b>Basecamp → Package Manager → Add repository</b>, then paste:</div>
+        <div class="copyrow">
+          <div class="url" id="url">https://modules.alisher.xyz/logos-repo.json</div>
+          <button class="copy" id="copy" onclick="cp()">Copy</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <section id="catalog">
+    <div class="sec-head"><h2>In this repository</h2><span class="count" id="c1"></span></div>
+    <p class="sec-sub">One-click install once you've added the repo above.</p>
+    <div class="grid">{{CATALOG_CARDS}}</div>
+  </section>
+
+  <section id="github">
+    <div class="sec-head"><h2>Also on GitHub</h2><span class="count" id="c2"></span></div>
+    <p class="sec-sub">Work on Basecamp 0.2.x — build and install from source (not yet in the repository).</p>
+    <div class="grid">{{GITHUB_CARDS}}</div>
+  </section>
+
+  <section id="untested">
+    <div class="sec-head"><h2>Not tested in Basecamp 0.2.x</h2><span class="count" id="c3"></span></div>
+    <p class="sec-sub">Older or experimental modules — may need updates for the current Basecamp. Source available to explore or revive.</p>
+    <div class="grid">{{UNTESTED_CARDS}}</div>
+  </section>
+</main>
+
+<footer class="wrap">
+  <span>Built on <a href="https://logos.co/basecamp" target="_blank" rel="noopener">Logos Basecamp</a></span>
+  <span><a href="https://github.com/xAlisher/logos-basecamp-modules" target="_blank" rel="noopener">Catalog repository ↗</a></span>
+</footer>
+
+<script>
+function cp(){navigator.clipboard.writeText(document.getElementById('url').textContent.trim());
+  var b=document.getElementById('copy');b.textContent='Copied ✓';b.classList.add('done');
+  setTimeout(function(){b.textContent='Copy';b.classList.remove('done')},1600);}
+document.getElementById('c1').textContent=document.querySelectorAll('#catalog .card').length+' apps';
+document.getElementById('c2').textContent=document.querySelectorAll('#github .card').length+' apps';
+document.getElementById('c3').textContent=document.querySelectorAll('#untested .card').length+' apps';
+</script>
+</body>
+</html>
