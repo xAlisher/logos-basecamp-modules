@@ -1,0 +1,273 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Basecamp Modules by Alisher</title>
+<meta name="description" content="A Logos Basecamp module catalog — install as a repository, or grab standalone modules from GitHub.">
+<style>
+:root{
+  --bg:#0e0e11; --bg2:#131317; --surface:#1a1a20; --surface2:#20202a;
+  --border:#2a2a35; --border2:#343442;
+  --text:#ececf1; --muted:#9797a6; --faint:#6b6b7a;
+  --accent:#8b7cff; --accent2:#a99bff; --accent-dim:#8b7cff22;
+  --green:#37d39b; --green-dim:#37d39b1e; --amber:#e6b566; --amber-dim:#e6b5661e;
+  --radius:14px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:radial-gradient(1200px 600px at 50% -200px,#1a1830 0%,var(--bg) 60%);
+  color:var(--text);font:15px/1.55 ui-sans-serif,-apple-system,"Segoe UI",Inter,Roboto,sans-serif;
+  -webkit-font-smoothing:antialiased;min-height:100vh}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:1080px;margin:0 auto;padding:0 20px}
+
+/* header */
+header{position:sticky;top:0;z-index:10;background:rgba(14,14,17,.72);backdrop-filter:blur(12px);
+  border-bottom:1px solid var(--border)}
+.hbar{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:14px 0}
+.brand{display:flex;flex-direction:column;gap:2px}
+.brand h1{margin:0;font-size:18px;font-weight:650;letter-spacing:-.01em}
+.brand span{color:var(--muted);font-size:12.5px}
+.dl{display:inline-flex;align-items:center;gap:8px;background:var(--accent);color:#fff;
+  padding:10px 16px;border-radius:10px;font-weight:600;font-size:14px;white-space:nowrap;
+  box-shadow:0 4px 18px -6px var(--accent);transition:transform .12s,box-shadow .12s}
+.dl:hover{transform:translateY(-1px);box-shadow:0 8px 24px -6px var(--accent)}
+
+/* install hero */
+.hero{padding:44px 0 22px}
+.hero h2{font-size:26px;margin:0 0 8px;letter-spacing:-.02em}
+.hero p{color:var(--muted);margin:0 0 20px;max-width:640px}
+.install{background:linear-gradient(180deg,var(--surface2),var(--surface));border:1px solid var(--border2);
+  border-radius:var(--radius);padding:20px}
+.install .step{color:var(--muted);font-size:13.5px;margin-bottom:12px}
+.install .step b{color:var(--text);font-weight:600}
+.copyrow{display:flex;gap:10px;align-items:stretch}
+.url{flex:1;display:flex;align-items:center;background:var(--bg2);border:1px solid var(--border2);
+  border-radius:10px;padding:0 14px;font-family:ui-monospace,SFMono-Regular,Menlo,monospace;
+  font-size:13.5px;color:var(--accent2);overflow-x:auto;white-space:nowrap}
+.copy{background:var(--surface2);border:1px solid var(--border2);color:var(--text);border-radius:10px;
+  padding:11px 16px;font-weight:600;cursor:pointer;font-size:13.5px;white-space:nowrap;transition:.12s}
+.copy:hover{border-color:var(--accent);color:var(--accent2)}
+.copy.done{color:var(--green);border-color:var(--green)}
+
+/* sections */
+section{padding:30px 0}
+.sec-head{display:flex;align-items:baseline;gap:12px;margin-bottom:6px}
+.sec-head h2{font-size:19px;margin:0;letter-spacing:-.01em}
+.sec-head .count{color:var(--faint);font-size:13px}
+.sec-sub{color:var(--muted);font-size:13.5px;margin:0 0 18px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(310px,1fr));gap:16px}
+
+/* card */
+.card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);
+  padding:18px;display:flex;flex-direction:column;gap:12px;transition:border-color .15s,transform .15s,background .15s}
+.card:hover{border-color:var(--border2);background:var(--surface2);transform:translateY(-2px)}
+.card-top{display:flex;gap:13px;align-items:flex-start}
+.ic{width:46px;height:46px;flex:none;border-radius:11px;background:var(--bg2);border:1px solid var(--border2);
+  display:flex;align-items:center;justify-content:center;overflow:hidden}
+.ic img{width:100%;height:100%;object-fit:cover}
+.ic-fallback{font-size:22px}
+.card-head{flex:1;min-width:0}
+.title-row{display:flex;align-items:center;gap:8px;justify-content:space-between}
+.title-row h3{margin:0;font-size:16px;font-weight:640;letter-spacing:-.01em}
+.ver{color:var(--faint);font-size:12px;font-family:ui-monospace,monospace;flex:none}
+.pills{display:flex;flex-wrap:wrap;gap:6px;margin-top:7px}
+.pill{font-size:11px;font-weight:600;padding:3px 8px;border-radius:6px;line-height:1.3}
+.pill-universal{background:var(--green-dim);color:var(--green)}
+.pill-legacy{background:var(--amber-dim);color:var(--amber)}
+.pill-cat{background:var(--accent-dim);color:var(--accent2)}
+.desc{margin:0;color:var(--muted);font-size:13.5px;flex:1}
+.uses{display:flex;align-items:center;flex-wrap:wrap;gap:6px}
+.uses-label{font-size:11px;text-transform:uppercase;letter-spacing:.04em;color:var(--faint);margin-right:2px}
+.chip{font-size:11.5px;padding:3px 9px;border-radius:20px;background:var(--bg2);border:1px solid var(--border2);color:var(--muted)}
+.chip-none{opacity:.6}
+.repo-link{display:inline-flex;align-items:center;gap:6px;align-self:flex-start;color:var(--accent2);
+  font-size:13px;font-weight:600;padding-top:2px}
+.repo-link .arr{transition:transform .15s}
+.repo-link:hover .arr{transform:translateX(3px)}
+
+/* footer */
+footer{border-top:1px solid var(--border);padding:26px 0 40px;color:var(--faint);font-size:13px;
+  display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
+footer a{color:var(--muted)}
+footer a:hover{color:var(--accent2)}
+@media(max-width:560px){.hbar{flex-direction:column;align-items:flex-start}.hero h2{font-size:22px}}
+</style>
+</head>
+<body>
+<header><div class="wrap hbar">
+  <div class="brand"><h1>Basecamp Modules by Alisher</h1><span>Sovereign apps for Logos Basecamp</span></div>
+  <a class="dl" href="https://logos.co/basecamp" target="_blank" rel="noopener">⬇ Download Basecamp</a>
+</div></header>
+
+<main class="wrap">
+  <div class="hero">
+    <h2>Install as a repository</h2>
+    <p>Add this catalog once in Basecamp and install every module below with one click — Basecamp resolves versions and dependencies for you.</p>
+    <div class="install">
+      <div class="step"><b>Basecamp → Package Manager → Add repository</b>, then paste:</div>
+      <div class="copyrow">
+        <div class="url" id="url">https://modules.alisher.xyz/logos-repo.json</div>
+        <button class="copy" id="copy" onclick="cp()">Copy</button>
+      </div>
+    </div>
+  </div>
+
+  <section id="catalog">
+    <div class="sec-head"><h2>In this repository</h2><span class="count" id="c1"></span></div>
+    <p class="sec-sub">One-click install once you've added the repo above.</p>
+    <div class="grid"><article class="card">
+  <div class="card-top">
+    <div class="ic"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAOdEVYdFNvZnR3YXJlAEZpZ21hnrGWYwAAAalJREFUeAHt2oFRwjAUBuC/LmDdoCO4gYygE8AGuoE4Ad0AmEA3sE6gG8AG4ATx5VqOXI5K5NVLm/7f3btyDYS+d4W+FAAiIiIiIqIRyhCBMSaXzVTittlVSXxkWbZFymziEs8SO3PaUqJAagIST7MQNgmJ8g+Jp1GIJvHVmeRsUeYSjxKbJAoRmPimSTr3XjszQy2EHNQkMPFpwFzDKYSpv9xeu0j8xNyhhcihoOoD5M1XqK/nbSqJNXTs/JNfxt+kf3jAhbQFMIhvLwW4wYWuoLNHfKpj0BbgBfGpPmLqtYD9spLNHeJYy+lfgag/zLH/L/1mxdQN0/JUX2DqxZIduw+dr5fkID+dRuXd2V94TczcGZt5Y/m5+XrLb9Wc/X6SS2fMb6Nn5+brivYyOHgsAEaOBcDIsQAYORYAI8cCYOT+owDuLapty2Pru+U1/nPb5usnc7ydvXMXNc1YeVjVuUvbZqV4WPWVofMR6XVxU3QimwJxbKPeFJXkFya+BRRS+GUIchZcnIf2Mlghvi8oaM+AQjZPEteIw/YSZfJ/riIiIiIiIuraDyI5nNrqAXLaAAAAAElFTkSuQmCC" alt=""></div>
+    <div class="card-head">
+      <div class="title-row"><h3>Archive</h3><span class="ver">v0.2.0</span></div>
+      <div class="pills"><span class="pill pill-legacy">Legacy</span><span class="pill pill-cat">📦 Archiving</span></div>
+    </div>
+  </div>
+  <p class="desc">Follow curated LEZ channels and preserve their Internet Archive collections to Logos Storage.</p>
+  <div class="uses"><span class="uses-label">Uses</span><span class="chip">Storage</span><span class="chip">Blockchain</span></div>
+  <a class="repo-link" href="https://github.com/xAlisher/ia-basecamp" target="_blank" rel="noopener">GitHub<span class="arr">→</span></a>
+</article>
+<article class="card">
+  <div class="card-top">
+    <div class="ic"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAOdEVYdFNvZnR3YXJlAEZpZ21hnrGWYwAAAalJREFUeAHt2oFRwjAUBuC/LmDdoCO4gYygE8AGuoE4Ad0AmEA3sE6gG8AG4ATx5VqOXI5K5NVLm/7f3btyDYS+d4W+FAAiIiIiIqIRyhCBMSaXzVTittlVSXxkWbZFymziEs8SO3PaUqJAagIST7MQNgmJ8g+Jp1GIJvHVmeRsUeYSjxKbJAoRmPimSTr3XjszQy2EHNQkMPFpwFzDKYSpv9xeu0j8xNyhhcihoOoD5M1XqK/nbSqJNXTs/JNfxt+kf3jAhbQFMIhvLwW4wYWuoLNHfKpj0BbgBfGpPmLqtYD9spLNHeJYy+lfgag/zLH/L/1mxdQN0/JUX2DqxZIduw+dr5fkID+dRuXd2V94TczcGZt5Y/m5+XrLb9Wc/X6SS2fMb6Nn5+brivYyOHgsAEaOBcDIsQAYORYAI8cCYOT+owDuLapty2Pru+U1/nPb5usnc7ydvXMXNc1YeVjVuUvbZqV4WPWVofMR6XVxU3QimwJxbKPeFJXkFya+BRRS+GUIchZcnIf2Mlghvi8oaM+AQjZPEteIw/YSZfJ/riIiIiIiIuraDyI5nNrqAXLaAAAAAElFTkSuQmCC" alt=""></div>
+    <div class="card-head">
+      <div class="title-row"><h3>Archive UI</h3><span class="ver">v0.2.0</span></div>
+      <div class="pills"><span class="pill pill-legacy">Legacy</span><span class="pill pill-cat">📦 Archiving</span></div>
+    </div>
+  </div>
+  <p class="desc">Sidebar UI for the archiver — follow channels, browse items, one-click preserve.</p>
+  <div class="uses"><span class="uses-label">Uses</span><span class="chip">Storage</span></div>
+  <a class="repo-link" href="https://github.com/xAlisher/ia-basecamp" target="_blank" rel="noopener">GitHub<span class="arr">→</span></a>
+</article>
+<article class="card">
+  <div class="card-top">
+    <div class="ic"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAOdEVYdFNvZnR3YXJlAEZpZ21hnrGWYwAAAwhJREFUeAHtmdFx2kAQhn9l8h6XIFdgUoFFBcEVQCqwXQG4AkMF4ApCKpBSAaQCKxWYDi67c0tGHDqExAEaZb+ZHY1Od5Jud293TwIURVEURVEURVEUpXUYY25IxiQfImP8D9BEE5KpTNrlBl1ErD0iSc1huqUAx80Pwdef0BXEzVNTDU980gnLi7UfSVZHTDxlJaEL0ER6xh/UyqwdowvUcPNUPKMzbj421dZmfnTJzdnaixpufnVrRzgRmcSQZECSVHTfkMxIMoRhHUXRBteAg5RY+9rMzQkBs5EHyANTkhjtICfpkzfkqMknNGOO9kyeiWHfqTa1PcDYiJ06zbwO17gsMfaNwF6Q4ZyQAp6cNZjhSpj9+qL2PqHJEnBTV+braGxa5CD1XnhJfulhWeAyNrAeKpG5Zig+/1fFu1XSNAZUQi/6CrtURth11YRkwdeoT88ZxmN6B247kPsF4ywKYEvRocodY5JViRKq+EBAgivA2E9WgxpDim79DJvSfGQkPxGQc3jAyDnPYaMzZ5xbkhfnegzxFs7jJLeRn37oyu8zAiIpMi405SgUKHLc7gEeC/3uZTy3T0juPI9Y0j1mCEhQBWB/L5B5qrMJdhWwjQNT2H2F9/6kJPaSYMvgbFlA+FPWWOLG2xjwBdV8RUBCKyB3zu/LOpn9/X8uxzdU33+BgIReAplzzi47Jov/C3xSAM3LxlG/JV3nQBmjnHWrgyCvdymNk0LzRCzOVdv224FbsRUt34O/GAq+5wjtAcx3khV2J5nA/7Fktt3ASC3/Cj9j6hN0wxM8CErUf4C1VhWc1ooV47cjxiQIyFmygFiIo3Xm6cLKeaZ+D077MeltiYCEWAKlOzDxhL4EvQQ2sHEd/xueYEZt/N9gA38Q5LpiXfXsOjRRQO6cD3kLC0/OL4wpjuOfJMf23aGQQmPsF00r1KTJFyHW+jsCaD8wORp8F6wdA8R1X9A+3qIGH0UbY+yPjbYwQUNO+jFibIDjNHaHy8OeyHFnelHLK4qiKIqiKIqiKB3gL3Hg7qkiwtSpAAAAAElFTkSuQmCC" alt=""></div>
+    <div class="card-head">
+      <div class="title-row"><h3>Receiver</h3><span class="ver">v0.2.0.3</span></div>
+      <div class="pills"><span class="pill pill-universal">Universal</span><span class="pill pill-cat">📡 Streaming</span></div>
+    </div>
+  </div>
+  <p class="desc">Discover and listen to decentralized Logos radio broadcasts over LogosMessaging, via Tor.</p>
+  <div class="uses"><span class="uses-label">Uses</span><span class="chip">Messaging</span></div>
+  <a class="repo-link" href="https://github.com/xAlisher/receiver-basecamp" target="_blank" rel="noopener">GitHub<span class="arr">→</span></a>
+</article>
+<article class="card">
+  <div class="card-top">
+    <div class="ic"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAOdEVYdFNvZnR3YXJlAEZpZ21hnrGWYwAAAzlJREFUeAHtmo1x2jAUgJ9EYi6Eu4YN3A3IBE0nSDYgnaBsEDpBYIKSDZoJaCeIN4AN4AgkuQRQ3xOYs4SBXCLZbfy+O+dsWZbRs/R+A8AwDMMwDMMwTBERkANqODyBUukCj1A3zOcRHaJWG8BHhiauHh6u1WQyVNOpSjl+Yp8QMiSzFaAnFgQ9PA33dB3A8/PXrFZDdgKYTvuwf/IxJIRTFMIIPCMhA3DJN8GevBADUKqjDzo3odXShI8CfX1jr08m3Y0+2GbpgyFkgPctgBOr4xe+SzSNQMpTcXQ0MPqRZQgC2iYn60YpP9v9XON/Cyh1YlwLEaVNSu93pcz22SwEz2SiA16NlN6V3sYroeCwAKDgsACg4ByAI7SvXy6fo5kboZm7AQ+o8ZgiyDq6yV1XsYITAaycmB7a8RAPwIivJiqVNjhEu9NCXOuLIGjgO53ECm62wMFBHUxf/xxcI2VyzHD1zvcPCwWHBQAFJ3sB2MFRzrhSggPjmqxBzGwWWb3raXk/3abUmdGYfHaxMAVXLjsJnNwI4OnJ/jGhNo2wCnOF+G3cRZOZFEIiX5gkis2cHksIQ+uLILAF+yacCGAVy5s/6PDwYn2+WNiOEU24j/5CDzM/d6tESGj0kLKdOtYSJ5PXrwFXKHVrjiwb8amoVrt4/yblmTP8W09p7xjepBBX1v0/4Ah3AhDil3GNk9Oua8zLSxOLH52945Cgjo9b68vJ5BLs1VEqOfUynbFa0kZi01Z4NCFa9htFEXr28bFh9MVnNxKqWDwBhzhNiuIEQtzvlABNauzUQocic0gJU6JajQQGUcb9bYWUDBKl74KClpSSV9/+ujvHmE4vtpTPWvA/gHu/vaX2pwURm0jjGaobjseXKdsoriV42ffe6gIkBFRW33d0iSBe9kvHKdw+GFqFatVLpchrYUTd37dwz17B2yH/4gdO3pvW918ZIsU4n7fwa79aB2jIexTim2+Fl111eCkIyup8gTTnZ0mEVuSWfAr86s68vV3k8h8iBCk2o6FSqdmmMAv+mXxAHpMnOCECBSc/ASRzBHYgleXPgJzQ3iDF+VJ+Agx989IBDMMwDMMwDMMUk782nw3sa/YbygAAAABJRU5ErkJggg==" alt=""></div>
+    <div class="card-head">
+      <div class="title-row"><h3>Radio (Booth)</h3><span class="ver">v0.2.1</span></div>
+      <div class="pills"><span class="pill pill-universal">Universal</span><span class="pill pill-cat">📡 Streaming</span></div>
+    </div>
+  </div>
+  <p class="desc">Broadcast your own decentralized radio station over Logos — the booth side of the radio pair.</p>
+  <div class="uses"><span class="uses-label">Uses</span><span class="chip">Messaging</span></div>
+  <a class="repo-link" href="https://github.com/xAlisher/booth-basecamp" target="_blank" rel="noopener">GitHub<span class="arr">→</span></a>
+</article>
+<article class="card">
+  <div class="card-top">
+    <div class="ic"><span class="ic-fallback">📡</span></div>
+    <div class="card-head">
+      <div class="title-row"><h3>Radio Module</h3><span class="ver">v0.1.0</span></div>
+      <div class="pills"><span class="pill pill-universal">Universal</span><span class="pill pill-cat">📡 Streaming</span></div>
+    </div>
+  </div>
+  <p class="desc">Core broadcast engine backing the Radio UI — capture, encode and publish the stream.</p>
+  <div class="uses"><span class="uses-label">Uses</span><span class="chip">Messaging</span></div>
+  <a class="repo-link" href="https://github.com/xAlisher/booth-basecamp" target="_blank" rel="noopener">GitHub<span class="arr">→</span></a>
+</article></div>
+  </section>
+
+  <section id="github">
+    <div class="sec-head"><h2>Also on GitHub</h2><span class="count" id="c2"></span></div>
+    <p class="sec-sub">Standalone modules — build and install these from source (not yet in the repository).</p>
+    <div class="grid"><article class="card">
+  <div class="card-top">
+    <div class="ic"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABwAAAAcCAYAAAByDd+UAAAB1klEQVR4nO2WP0scURTF791xQZPCwlgIWy5kIUUIKSxkUyliGsFNqkgW/ApWERIUhC1Sx8I6BFbRwkrSCYII2hgUSz9BTLJB8kfnZ+EZeLuFO+MuiOCF4b1333v33HPvmWHM7u2um2e9AOTMDN3NmVns7nG3E2ubBJA5+bZBNb4FdoAVYBYotZ7pFmCkcQH4TbMtAY+6DhqCA0PAFHAg0GOg2BGoAielTMZXwAYwDzyR74NAj4ABwDP3NLwgUSQlrbWU85P877RevjFLYAJ4nrANwAvAOLCV9FB7u0CcqbRB6UoK9gsoy5dvOdsrxQI8Biqaz2q/Jw1gj8bFoGw/gBfyPwDWgNWgCv+l3kHgHPiShaFr/Cp2cwL9qeB1rdcljoLWm0Be8/0wVlrAbeBM8zctQqkDD9XPiCshvdbZBaCahWHSw88SwFOtZ1Suv8CofPnrYqWyoIdVsakFezPyfQ+EFNH8vkapmAVBXU8/cAL8AyaD/WmJ5BQYCavSCcsk2zLwR6w+As/Ut/fAhYQ0rAS7CnoYCKYBnGl+DrzUuShN3GtlC+TcPQb6zKxiZmNmVjSzhpntmVnd3b8B7u50QjAETZV5Wkv1Rde7GZlZbLf9e3Fvt26Xd8WdYwFKn4QAAAAASUVORK5CYII=" alt=""></div>
+    <div class="card-head">
+      <div class="title-row"><h3>Beacon</h3><span class="ver">v2.0.0</span></div>
+      <div class="pills"><span class="pill pill-universal">Universal</span><span class="pill pill-cat">⛓️ Blockchain</span></div>
+    </div>
+  </div>
+  <p class="desc">On-chain CID inscription — sequence content references onto the Logos Execution Zone.</p>
+  <div class="uses"><span class="uses-label">Uses</span><span class="chip">Blockchain</span></div>
+  <a class="repo-link" href="https://github.com/xAlisher/beacon-basecamp" target="_blank" rel="noopener">GitHub<span class="arr">→</span></a>
+</article>
+<article class="card">
+  <div class="card-top">
+    <div class="ic"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAOdEVYdFNvZnR3YXJlAEZpZ21hnrGWYwAAAalJREFUeAHt2oFRwjAUBuC/LmDdoCO4gYygE8AGuoE4Ad0AmEA3sE6gG8AG4ATx5VqOXI5K5NVLm/7f3btyDYS+d4W+FAAiIiIiIqIRyhCBMSaXzVTittlVSXxkWbZFymziEs8SO3PaUqJAagIST7MQNgmJ8g+Jp1GIJvHVmeRsUeYSjxKbJAoRmPimSTr3XjszQy2EHNQkMPFpwFzDKYSpv9xeu0j8xNyhhcihoOoD5M1XqK/nbSqJNXTs/JNfxt+kf3jAhbQFMIhvLwW4wYWuoLNHfKpj0BbgBfGpPmLqtYD9spLNHeJYy+lfgag/zLH/L/1mxdQN0/JUX2DqxZIduw+dr5fkID+dRuXd2V94TczcGZt5Y/m5+XrLb9Wc/X6SS2fMb6Nn5+brivYyOHgsAEaOBcDIsQAYORYAI8cCYOT+owDuLapty2Pru+U1/nPb5usnc7ydvXMXNc1YeVjVuUvbZqV4WPWVofMR6XVxU3QimwJxbKPeFJXkFya+BRRS+GUIchZcnIf2Mlghvi8oaM+AQjZPEteIw/YSZfJ/riIiIiIiIuraDyI5nNrqAXLaAAAAAElFTkSuQmCC" alt=""></div>
+    <div class="card-head">
+      <div class="title-row"><h3>Keeper</h3><span class="ver">v0.2.0</span></div>
+      <div class="pills"><span class="pill pill-universal">Universal</span><span class="pill pill-cat">📦 Archiving</span></div>
+    </div>
+  </div>
+  <p class="desc">Preserve Internet Archive collections — download, store CIDs on Logos Storage, inscribe on-chain.</p>
+  <div class="uses"><span class="uses-label">Uses</span><span class="chip">Storage</span><span class="chip">Blockchain</span></div>
+  <a class="repo-link" href="https://github.com/xAlisher/keeper-basecamp" target="_blank" rel="noopener">GitHub<span class="arr">→</span></a>
+</article>
+<article class="card">
+  <div class="card-top">
+    <div class="ic"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAOdEVYdFNvZnR3YXJlAEZpZ21hnrGWYwAAAhpJREFUeAHtmoF1gjAQho9O4AhsUEfACeoG7Qa1E8gGtRPUDdoNtBPoBnED7QTXuwe85iFKCCYSct9793xKDvP/XAwJAgiCIAjCoEHEjOKTYkWRQkyQ4CWe8wyxQGKP2Mz4TeByx+tEYYKK2gQSOL0yDMQEMUFM6GfCA4yP9SgrwfDqW1fCoLEQPx4TeoivmEOoGIrPW9rwsQmEhqH4F8O2UwiJLuINc8KpABvxLbk5+IQ7h5abF33Ea+dIy+/mPvidBcov1VGmJtxC/F1pEG9swpjFt5oQg3jdhEktNxrxTF7LjUr8qpYblXhVyw1e/BK7sdBy09DFt21TN5Fp+V8YqnjGQEATqZavQhZvc/WZJ+0cqyDFM1c630aunYNNVNqxYxDiGeroDu0425Cg93MsFk31z19xqE9/sR87bFmT4//sogZnAtqPfx2FDTszbAzFe0PbFDyQmDTCYirbwG3YUxwoThQpRXahHbeZJUlyAIeYGpDSiwL/bMmAGThk6E+GMnCMUQUwVAVHevG+uUgVYNxHG7pUwBb8swbHdDHgB/zCP5Zv4JguQ4DLn38IfQwDFs8zwAkcY1wBZWc+wD3exHemvGlR6I7WO8a7g/2f1oYrvgKLxUyc4iuwqASF/dkEJ74Ci0XSGu3gYbSAMYDFv7k3HYTnQ7nqN73NxGLRlFHwsvdRO3Sg+KX4ptgPcooTBEEQBEEQIuMPA1sAIuHQwfwAAAAASUVORK5CYII=" alt=""></div>
+    <div class="card-head">
+      <div class="title-row"><h3>Stash</h3><span class="ver">v0.1.0</span></div>
+      <div class="pills"><span class="pill pill-legacy">Legacy</span><span class="pill pill-cat">🗄️ Storage</span></div>
+    </div>
+  </div>
+  <p class="desc">Lean decentralized storage — drop a file, get a content-addressed CID back.</p>
+  <div class="uses"><span class="uses-label">Uses</span><span class="chip">Storage</span></div>
+  <a class="repo-link" href="https://github.com/xAlisher/stash-basecamp" target="_blank" rel="noopener">GitHub<span class="arr">→</span></a>
+</article>
+<article class="card">
+  <div class="card-top">
+    <div class="ic"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAOdEVYdFNvZnR3YXJlAEZpZ21hnrGWYwAAApRJREFUeAHtmeF12yAQgM99/V91gqoTNJ2gjNANkkzQdAI7E8SdQMoGzQRxJnA2kDZQMsHliPALOYGFMI54yX3v8WxxB4ITHAcACIIgCIIgCIIgCIIwBUQ8pdRRavR/JrvCni2lMqAuRakydaFVdh1SfhZYYzsrX+Fr1nvqKCjd4jhLyA3eQiv/jIkqT/mSGfHNjfAZEmJ1tAwsspqg+6xP72gXi8U1zA3283UK3Ecoh46e88rICzOSGqbTwdzgcIiHoJ1lYdVRM3njeVdpytooSMQniEPBdHTnf1nPP5j83FWIhntLP3zI/4ZEpPIBNaU7R74e9sp6/mr9P7EVqaMb8HPPnr9AIlIZ4I46UPPMlEP1WMROgXfDsQ3Ah+r8HpwROwUe2PMSX+KgHd9g6Kwe4T3gWcPHaFgdrxh5X1BkGUPUFDAe+x9M4y9kSLQPICNcQJgR9HQ5J/3/kCEHOUFjhO/QG6Jl4g2lZ7lricyFg+MAE6ldmDC3tETXOXd8h8QBkDHY7wj/QB9S2+hVKK+TIsfu7mxEf+8yiC/HbWNcwQEkPRBJBXVKB1B1oLr2P9oXRS2zuU6BqV9VG0FBBNmNANORkmVfwnCZXTI9PWo2MJEcp0DBnm9oeK+4knEbdkgcdUaQ4xTgBjjqDvLDxwFZrgKM0rOkKkhASgPwM4ITn6LDY9/vqUdBos4eFRyeEXS+SA2HZ/2VJSswLADinMLcOBreYB/RFUaujbR1NF6xeqbeO9SQAxh3YeK7N+Sh9S32t1EVrwBygtqzwnAa9E8T794ipQGSL4MmaLkMUN1Q+mnOE1xwZ9h6ZC3kCPZ3enrLumVfvMKAuN2U35VdM9nu0rTDkV2nIAiCIAiCIAiCIAgDngAvrGtBIZ2JoQAAAABJRU5ErkJggg==" alt=""></div>
+    <div class="card-head">
+      <div class="title-row"><h3>Cord</h3><span class="ver">v1.0.0</span></div>
+      <div class="pills"><span class="pill pill-legacy">Legacy</span><span class="pill pill-cat">💬 Social</span></div>
+    </div>
+  </div>
+  <p class="desc">Social layer — subscribe to Beacon channels and follow on-chain publishers.</p>
+  <div class="uses"><span class="uses-label">Uses</span><span class="chip">Messaging</span><span class="chip">Blockchain</span></div>
+  <a class="repo-link" href="https://github.com/xAlisher/cord-basecamp" target="_blank" rel="noopener">GitHub<span class="arr">→</span></a>
+</article>
+<article class="card">
+  <div class="card-top">
+    <div class="ic"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABwAAAAcCAYAAAByDd+UAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAOdEVYdFNvZnR3YXJlAEZpZ21hnrGWYwAAAPxJREFUeAHtlA0NgzAQhR/LBOAAJMwBSJgD5gAcDAebg0kYDpDAHCCBOeiuyZFdSPkJXJMl40sutL2mLz1eD9j5G4wxF4rafLHjDD6gg0szTglN+GaWjuIs1gshmkILUcbMkbty7gEt+iuM5GJOt1jIYcGeNx8eOnKh3KMl+OJv7sjlgz3bsYaQjqQ4cSnvYj2GJsIcLnL4gA5OKJ5CyI4T+ES40hJhBUdshP9fytMqCIJJxy5x6ZxYTWEffjQntkpAlpSiUe80E4K9gZqRpuBkS0n7Rl6pl7JncMNOfGP4YCBoO86NxzV84DBNSNHyvIA2rofPN/Vb2p2f4gNkiZVvSJPswAAAAABJRU5ErkJggg==" alt=""></div>
+    <div class="card-head">
+      <div class="title-row"><h3>Keycard</h3><span class="ver">v1.0.0</span></div>
+      <div class="pills"><span class="pill pill-legacy">Legacy</span><span class="pill pill-cat">🔑 Security</span></div>
+    </div>
+  </div>
+  <p class="desc">Smartcard authentication — unlock and sign with a hardware Keycard.</p>
+  <div class="uses"><span class="uses-label">Uses</span><span class="chip chip-none">—</span></div>
+  <a class="repo-link" href="https://github.com/xAlisher/keycard-basecamp" target="_blank" rel="noopener">GitHub<span class="arr">→</span></a>
+</article>
+<article class="card">
+  <div class="card-top">
+    <div class="ic"><span class="ic-fallback">⚙️</span></div>
+    <div class="card-head">
+      <div class="title-row"><h3>Zone Sequencer</h3><span class="ver">v0.2.0</span></div>
+      <div class="pills"><span class="pill pill-universal">Universal</span><span class="pill pill-cat">⚙️ Infrastructure</span></div>
+    </div>
+  </div>
+  <p class="desc">Zone inscription sequencer for logos-blockchain v0.2 (zone-SDK FFI). Backs Beacon/Keeper.</p>
+  <div class="uses"><span class="uses-label">Uses</span><span class="chip">Blockchain</span></div>
+  <a class="repo-link" href="https://github.com/xAlisher/logos-zone-sequencer-module" target="_blank" rel="noopener">GitHub<span class="arr">→</span></a>
+</article></div>
+  </section>
+</main>
+
+<footer class="wrap">
+  <span>Built on <a href="https://logos.co/basecamp" target="_blank" rel="noopener">Logos Basecamp</a></span>
+  <span><a href="https://github.com/xAlisher/logos-basecamp-modules" target="_blank" rel="noopener">Catalog repository ↗</a></span>
+</footer>
+
+<script>
+function cp(){navigator.clipboard.writeText(document.getElementById('url').textContent.trim());
+  var b=document.getElementById('copy');b.textContent='Copied ✓';b.classList.add('done');
+  setTimeout(function(){b.textContent='Copy';b.classList.remove('done')},1600);}
+document.getElementById('c1').textContent=document.querySelectorAll('#catalog .card').length+' modules';
+document.getElementById('c2').textContent=document.querySelectorAll('#github .card').length+' modules';
+</script>
+</body>
+</html>
