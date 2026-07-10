@@ -1,0 +1,9 @@
+{
+  "schemaVersion": 1,
+  "name": "xalisher-modules",
+  "displayName": "xAlisher's Logos Modules",
+  "description": "Logos Basecamp modules by xAlisher — archive (Internet Archive preservation), radio/receiver (Tor radio), and more.",
+  "homepage": "https://modules.alisher.xyz",
+  "indexUrl": "https://github.com/xAlisher/logos-basecamp-modules/releases/download/index/index.json",
+  "trustedSigners": []
+}
