@@ -5,5 +5,7 @@
   "description": "Logos Basecamp modules by xAlisher — archive (Internet Archive preservation), radio/receiver (Tor radio), and more.",
   "homepage": "https://modules.alisher.xyz",
   "indexUrl": "https://github.com/xAlisher/logos-basecamp-modules/releases/download/index/index.json",
-  "trustedSigners": []
+  "trustedSigners": [
+    "did:jwk:eyJjcnYiOiJFZDI1NTE5Iiwia3R5IjoiT0tQIiwieCI6InpXbS1DZC04OHpPZVYybWszOW93enhfU2Z5azdnRXNlNk1iTTRpSFVpSm8ifQ"
+  ]
 }
