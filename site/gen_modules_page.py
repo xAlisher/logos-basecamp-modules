@@ -25,6 +25,9 @@ def icon_data_uri(module_dir, hint):
 # bucket: catalog | github | untested   |   mods = package names bundled in the repo
 A = [
  # ── in this repository (catalog, tested on 0.2.x) ──
+ dict(bucket='catalog', repo='logos-blockchain-ui', dir='', title='Blockchain Node', ver='0.2.0', iface='Universal',
+      cat='Blockchain', core=[], icon='', mods=['blockchain_ui','blockchain_module'],
+      desc='Run a Logos blockchain node on the testnet — sync to the tip, monitor and manage. Fork of the official modules, patched for a clean tip-race sync + honest errors.'),
  dict(bucket='catalog', repo='ia-basecamp', dir='', title='Archive', ver='0.2.0', iface='Legacy',
       cat='Archiving', core=['Storage','Blockchain'], icon='archive.png', mods=['archive','archive_ui'],
       desc='Follow curated LEZ channels and preserve their Internet Archive collections to Logos Storage.'),
