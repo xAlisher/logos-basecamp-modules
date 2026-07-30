@@ -48,3 +48,11 @@
 [submodule "submodules/booth-basecamp"]
 	path = submodules/booth-basecamp
 	url = https://github.com/xAlisher/booth-basecamp
+[submodule "submodules/logos-blockchain-module"]
+	path = submodules/logos-blockchain-module
+	url = https://github.com/xAlisher/logos-blockchain-module
+	branch = demo/testnet
+[submodule "submodules/logos-blockchain-ui"]
+	path = submodules/logos-blockchain-ui
+	url = https://github.com/xAlisher/logos-blockchain-ui
+	branch = demo/testnet

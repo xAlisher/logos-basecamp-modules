@@ -148,3 +148,8 @@ cloning your fork, run:
 ```bash
 git submodule update --init --recursive
 ```
+
+
+## Blockchain node (demo forks)
+
+`logos-blockchain-module` and `logos-blockchain-ui` here are **forks of the official modules** (testnet 0.2.0), patched for the node-running demo — a tip-race crash fix in the core, plus `ibd.peers` autofill and honest errors in the UI. See each module's README.
