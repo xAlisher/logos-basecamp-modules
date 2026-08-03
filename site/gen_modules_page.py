@@ -37,6 +37,10 @@ A = [
  dict(bucket='catalog', repo='booth-basecamp', dir='', title='Booth (xRadio)', ver='0.2.1', iface='Universal',
       cat='Streaming', core=['Messaging'], icon='', mods=['radio_ui','radio_module'],
       desc='Broadcast your own decentralized station — RTMP → MediaMTX, announced over delivery.'),
+ dict(bucket='catalog', repo='lez-stark-verify', dir='', title='ZK Guess', ver='0.1.1', iface='Universal',
+      cat='Game', core=['Messaging'], icon='', mods=['zk_guess_game'],
+      iconpath=os.path.expanduser('~/lez-stark-verify/module/zk-guess-game/qml/icon.png'),
+      desc='Provably-fair number-guessing party game — the machine proves above/below without revealing the number, then settles the win on-zone (STARK-verified on the Logos Execution Zone).'),
  # ── also on GitHub (works on 0.2.x, install from source) ──
  dict(bucket='github', repo='keeper-basecamp', dir='', title='Keeper', ver='0.2.0', iface='Universal',
       cat='Archiving', core=['Storage','Blockchain'], icon='keeper.png', mods=['keeper'],
