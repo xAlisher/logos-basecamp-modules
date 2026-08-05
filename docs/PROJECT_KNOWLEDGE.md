@@ -113,3 +113,35 @@ gh workflow run "Release keeper-basecamp" --repo xAlisher/logos-basecamp-modules
 
 Each release action builds the LGX, publishes a GitHub Release, then `rebuild-index.yml`
 regenerates `index.json` and uploads it as the `index` release asset.
+
+## Broken submodule checkout — bump gitlinks in a FRESH CLONE
+
+The local `submodules/logos-blockchain-ui/.git` is a **tangled clone** (a full `.git` dir whose
+config was aliased to the superproject), with its `origin` pointing at the catalog itself. Two
+consequences, both hit during the blockchain_ui v0.2.1 catalog publish (2026-08-06):
+
+- `git -C submodules/logos-blockchain-ui remote set-url origin …` mutated the **superproject's**
+  origin (not the submodule's), which then sent a `git push origin main` to the wrong remote.
+- `git commit <submodule-path>` fails with `does not have a commit checked out`, and `git checkout
+  <tag>` inside the submodule resolves against the wrong repo's refs.
+
+**Fix / workaround:** bump the submodule gitlink in a **fresh clone** of the catalog, where submodules
+are uninitialized (empty dirs):
+```bash
+git clone https://github.com/xAlisher/logos-basecamp-modules /tmp/cat && cd /tmp/cat
+git update-index --cacheinfo 160000,<module-commit-sha>,submodules/logos-blockchain-ui
+git commit -m "blockchain_ui: bump submodule to <tag>" && git push origin main
+```
+`.gitmodules` URL is correct (`xAlisher/logos-blockchain-ui`), so the catalog CI clones the right
+repo at the pinned SHA regardless of the broken local checkout. Proper fix: `git submodule deinit -f
+submodules/logos-blockchain-ui && git submodule update --init` to re-establish a clean gitdir.
+See fieldcraft `git-submodule-remote-safety.md`.
+
+## Publishing a *_ui update WITHOUT re-running catalog CI
+
+To ship a corrected same-version `*_ui` build (e.g. blockchain_ui 0.2.1 fixed for BC v0.2.3) without a
+risky same-version CI re-run: build per-arch `.lgx` (fork CI already does), `lgx merge` them into one
+multivariant, sign off-stick (`~/.config/logos-signing/lgx_signer` + `keys/xAlisher.jwk`, whose DID is
+in `logos-repo.json` trustedSigners), `gh release upload <pkg>-v<ver> <signed.lgx> --clobber`, then
+`gh workflow run "Rebuild index"` (it rescans every release asset → picks up the new signed file).
+Verify: signed installs via `lgpm install --file …` WITHOUT `--allow-unsigned`.
