@@ -25,9 +25,9 @@ def icon_data_uri(module_dir, hint):
 # bucket: catalog | github | untested   |   mods = package names bundled in the repo
 A = [
  # ── in this repository (catalog, tested on 0.2.x) ──
- dict(bucket='catalog', repo='logos-blockchain-ui', dir='', title='Blockchain Node', ver='0.2.1', iface='Universal',
-      cat='Blockchain', core=[], icon='', mods=['blockchain_ui','blockchain_module'],
-      desc='Run a Logos blockchain node on the testnet — one-click start, sync to the tip, monitor and manage. Fork of the official module, patched to render on Basecamp v0.2.3 and sync the 0.2.1 testnet, with honest node errors.'),
+ dict(bucket='catalog', repo='logos-blockchain-ui', dir='', title='Blockchain node', ver='0.2.2', iface='Universal',
+      cat='Blockchain', core=[], icon='', mods=['logos_node_1click','blockchain_module'],
+      desc='Community 1-click fork — run a Logos blockchain node on the testnet in one click: sync to the tip, monitor and manage. Renamed from blockchain_ui (module logos_node_1click); renders on Basecamp v0.2.3, syncs the 0.2.1 testnet, honest node errors.'),
  dict(bucket='catalog', repo='ia-basecamp', dir='', title='Archive', ver='0.2.0', iface='Legacy',
       cat='Archiving', core=['Storage','Blockchain'], icon='archive.png', mods=['archive','archive_ui'],
       desc='Follow curated LEZ channels and preserve their Internet Archive collections to Logos Storage.'),
