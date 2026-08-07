@@ -25,6 +25,10 @@ def icon_data_uri(module_dir, hint):
 # bucket: catalog | github | untested   |   mods = package names bundled in the repo
 A = [
  # ── in this repository (catalog, tested on 0.2.x) ──
+ dict(bucket='catalog', repo='docs-logos', dir='', title='Docs', ver='0.1.0', iface='Universal',
+      cat='Utility', core=[], icon='', mods=['docs_logos'],
+      iconpath=os.path.expanduser('~/docs-assistant/qml/icon.png'),
+      desc='Search the Basecamp & Logos docs and blog from inside Basecamp — on-device BM25 keyword search with a full-screen Markdown reader (code blocks, tables, copyable text), recency-aware ranking, and an in-module crawler that rebuilds the index on demand. Linux + macOS.'),
  dict(bucket='catalog', repo='logos-blockchain-ui', dir='', title='Blockchain node', ver='0.2.3', iface='Universal',
       cat='Blockchain', core=[], icon='', mods=['logos_node_1click','blockchain_module'],
       desc='Community 1-click fork — run a Logos blockchain node on the testnet in one click: sync to the tip, monitor and manage. Renders on Basecamp v0.2.3, syncs the 0.2.1 testnet. v0.2.3 adds a Proposals tab (blocks your node proposed, from its own log) + leadership voucher count, LGO-formatted balances, and a cleaner borderless dashboard.'),
