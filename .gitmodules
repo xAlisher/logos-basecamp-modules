@@ -56,3 +56,6 @@
 	path = submodules/logos-blockchain-ui
 	url = https://github.com/xAlisher/logos-blockchain-ui
 	branch = demo/testnet
+[submodule "submodules/docs-logos"]
+	path = submodules/docs-logos
+	url = https://github.com/xAlisher/docs-logos
