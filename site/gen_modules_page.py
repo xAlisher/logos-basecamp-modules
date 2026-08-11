@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Generate modules.alisher.xyz/index.html.
+"""Generate apps.alisher.xyz/index.html.
 
 Frontend adopted from vpavlin's apps.vpavlin.xyz (his exact chrome — header, tabs,
 "How to install" blocks, footer, card layout, theme toggle), populated with OUR content:
@@ -12,7 +12,7 @@ import base64, glob, os, html, io, json, subprocess, tempfile
 from PIL import Image
 
 GH = "https://github.com/xAlisher"
-REPO_JSON = "https://modules.alisher.xyz/logos-repo.json"
+REPO_JSON = "https://apps.alisher.xyz/logos-repo.json"
 FDROID_REPO = "https://xalisher.github.io/fdroid/repo"
 FDROID_FP = "9283C4E3DAB31E68675B643AE38222358541431AD07295B6DF4A4C6D2ACCCF32"
 BASE = os.path.expanduser('~/basecamp/modules')
