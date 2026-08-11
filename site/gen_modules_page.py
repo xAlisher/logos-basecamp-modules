@@ -163,8 +163,8 @@ A = [
 
 # ── Android apps (F-Droid repo) ──
 ANDROID = [
- dict(title='Peers', ver='0.9.12', bytes=48719520, cat='Communication',
-      apk='peers-0.9.12-arm64.apk',
+ dict(title='Peers', ver='0.9.13', bytes=48722080, cat='Communication',
+      apk='peers-0.9.13-arm64.apk',
       iconpath=os.path.expanduser('~/projects/peers-tech-landing/apple-touch-icon.png'),
       desc='Local-first peer-to-peer chat on Logos — encrypted direct messaging over Waku, no server or account.'),
  dict(title='Booth', ver='0.1.0', bytes=49766209, cat='Multimedia',
