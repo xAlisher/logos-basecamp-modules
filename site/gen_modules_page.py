@@ -27,15 +27,21 @@ TARGET_FRAC = 0.54  # Docs reference: content ≈ 54% of canvas → ~23% margin 
 
 def _load_rgba(p):
     if p.endswith('.svg'):
+        tmp = None
         try:
-            tmp = tempfile.mktemp(suffix='.png')
+            fd, tmp = tempfile.mkstemp(suffix='.png')   # atomically created — no symlink race
+            os.close(fd)
             subprocess.run(['rsvg-convert', '-w', '512', '-h', '512', p, '-o', tmp],
                            check=True, capture_output=True)
-            im = Image.open(tmp).convert('RGBA')
-            os.unlink(tmp)
-            return im
+            return Image.open(tmp).convert('RGBA')
         except Exception:
             return None
+        finally:
+            if tmp:
+                try:
+                    os.unlink(tmp)
+                except OSError:
+                    pass
     return Image.open(p).convert('RGBA')
 
 
