@@ -1,5 +1,8 @@
 # logos-modules-release-base
 
+> This is a personal, experimental hobby project. It is not an official Logos product. Not audited.
+
+
 A **fork-me** starting point for running your own Logos module catalog.
 
 Fork this repo, add your modules as submodules, push — and you have a
