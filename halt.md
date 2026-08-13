@@ -1,34 +1,54 @@
-# Halt — 2026-07-10  (catalog: xAlisher/logos-basecamp-modules)
+# Halt — 2026-08-06  (catalog: xAlisher/logos-basecamp-modules)
 
 ## ▶ Resume this session
 ```bash
-cd ~/basecamp/logos-modules-release && claude --resume 1e8dfb1b-c6d0-4a34-94ee-d7d6726332e9
+cd /home/alisher/basecamp/logos-modules-release && claude --resume 2b7b9ceb-bd9c-408c-b980-eb4a27c74b34
 ```
-Fallback: `claude --continue`. (Issues are DISABLED on this repo — tracked in `xAlisher/alisher-sherali` #20/#21.)
+`/home/alisher/basecamp/logos-modules-release` · session 2b7b9ceb-bd9c-408c-b980-eb4a27c74b34. Fallback: `cd /home/alisher/basecamp/logos-modules-release && claude --continue`.
+(Multi-repo session — primary work was `~/basecamp/refs/logos-blockchain-ui` + this catalog + `~/logos-node-dashboard`. Prior 2026-07-10 halt archived to `docs/halt-archive/`; its open "prune 7 unpublished submodules" item is still unaddressed.)
 
 ## Where we stopped
-Stood up the branded catalog at **https://modules.alisher.xyz** (live, HTTPS enforced) and built a
-Basecamp-style **landing page** there. Published `archive` + `archive_ui` @0.2.0 (signed) to the catalog.
+**Everything shipped — this is a clean checkpoint, not a mid-task pause.** blockchain_ui v0.2.1
+(Basecamp v0.2.3 + 0.2.1-testnet compat) released to the fork AND the catalog as a **signed
+multivariant**; node-dashboard v0.1.3 cut; both READMEs updated; modules.alisher.xyz card + `index.json`
+serve the proper signed 0.2.1; retro extracted 2 skills + 1 protocol. No edit in flight.
 
 ## Current state
-- `main` @ `69f870c` · plus an **orphan `gh-pages` branch** that ACTUALLY serves the site (see below).
-- **Pages source = `gh-pages` branch / root** (legacy build). Serves `logos-repo.json` + `CNAME` (`modules.alisher.xyz`) + `.nojekyll` + `index.html`. HTTPS cert `approved`, enforced.
-- Index (`index.json`): packages `archive`, `archive_ui`, `receiver_ui`, `radio_ui`, `radio_module` — all signed.
-- PR #2 merged (CNAME + `logos-repo.json`; also fixed `indexUrl` which pointed at the wrong repo name `logos-modules-release` → `logos-basecamp-modules`).
-- Landing-page **generator persisted to `site/`** (`gen_modules_page.py`, `page_template.html`, `index.html`) — was in the ephemeral session scratchpad.
+- Branch: `main` (catalog) — pushed; fork on `compat/0.2.1-on-v0.2.1-base` (tag `v0.2.1` = `9754d23`).
+- Last commit (catalog): `d96fff4` retro: broken-submodule fresh-clone workaround + no-CI *_ui republish.
+- Build status: **verified** — fork CI green (3 arches); signed `.lgx` installs WITHOUT
+  `--allow-unsigned`; linux-amd64 variant watched sync to **Online** on the 0.2.1 testnet.
+- Releases: fork `v0.2.1` (signed multivariant) · catalog `blockchain_ui-v0.2.1` (signed, in index.json) ·
+  node-dashboard `v0.1.3`.
+- Open review: none.
+- Note: local `submodules/keycard-basecamp` shows ` m` (pre-existing dirty content, NOT ours — leave it).
 
-## Next steps (in order)
-1. **Prune 7 unpublished submodules** (user hasn't confirmed): `stash`, `beacon`, `keeper`, `cord`, `keycard`, `logos-zone-sequencer`, `radio` (redundant — radio ships from booth). Keep `ia`, `receiver`, `booth`. `git submodule deinit` + `git rm`, on a branch. Ask first — some may be staged to publish.
-2. **Landing page**: user should verify the 3-bucket split (tested-on-0.2.x vs not) + Universal/Legacy tags + categories — all curated guesses. Edit `site/gen_modules_page.py` data model → regenerate → deploy to `gh-pages`.
-3. Optional v2: serve `index.json` from the domain too (fully branded).
+## Next steps (in order) — all OPTIONAL follow-ups
+1. **Fix the broken local catalog submodule**: `git submodule deinit -f submodules/logos-blockchain-ui
+   && git submodule update --init submodules/logos-blockchain-ui` (its `.git` is a tangled catalog clone;
+   see PROJECT_KNOWLEDGE + fieldcraft `git-submodule-remote-safety`).
+2. **Verify darwin-arm64 / linux-arm64 variants render** — built + signed but not runtime-tested (need a
+   Mac / arm64 device). 🧫 wetware.
+3. **Upstream the #29 fix** — consider a PR of the sandbox→backend-QRO liveness fix to
+   `logos-blockchain/logos-blockchain-ui` (currently only on our fork).
+4. **Optional**: flip catalog `_release-module.yml` to `signing_mode: inline` so catalog CI signs
+   (today `none` → manual §7b-SIGN); and/or add signing to the fork's `release.yml` (it re-emits
+   unsigned per-arch on any future tag push).
 
 ## Blockers
-- Submodule prune needs the user's OK on which to keep.
+- none.
 
 ## Context that's hard to re-derive
-- **Pages MUST serve from the orphan `gh-pages` branch, NOT `main`.** `main` has 10 submodules → a root Pages build uploads the whole checked-out tree → errors forever. gh-pages has ONLY the served files.
-- **To edit the landing page:** edit `site/gen_modules_page.py` (curated module data + buckets) or `site/page_template.html` (CSS/layout) → `python3 site/gen_modules_page.py` → copy `site/index.html` onto the `gh-pages` branch → push → `gh api -X POST repos/xAlisher/logos-basecamp-modules/pages/builds`. (QR needs the `/tmp/qrvenv` qrcode venv; regenerate the QR SVG to `/tmp/qr.svg` first.)
-- **Cert stuck at `null`?** toggle the custom domain: `gh api -X PUT .../pages -f cname=""` then `-f cname=modules.alisher.xyz`. A "cert not valid" browser error right after = client cache/HSTS (verify with `curl -w %{ssl_verify_result}` + incognito).
-- **Publishing to the catalog** (per module): CI `Release <submodule>` ships only the core (multi-variant, incl. darwin) — sign it (§7-SIGN, BC 0.2.1+ rejects unsigned) + rebuild index. The `*_ui` is published **manually** (single-variant signed) — see basecamp-skills `catalog-publish-module-and-ui`.
-- **DNS:** `CNAME modules → xalisher.github.io` (Namecheap).
-- Excluded from the page by request: Shop, Back Office (not ready), Zone Sequencer (fork of vpavlin — already a collaborator there).
+- **Rebuild the signed multivariant** (scratch copy is gone): `nix build .#lgx-portable` per-arch →
+  `lgx merge` (nix-store `lgx` 0.1.0) → sign with `~/.config/logos-signing/lgx_signer` +
+  `keys/xAlisher.jwk` (off-stick fast path; DID is in `logos-repo.json` trustedSigners).
+  LD_LIBRARY_PATH needs AppImage `usr/lib` (from `--appimage-extract`) + nix `libsodium.so.26`.
+- **#29 fix** = v0.2.3 ui_qml sandbox blocks QML `XMLHttpRequest`; route node liveness via backend QRO
+  `getCryptarchiaInfo()` (`result.success` = up/down). Skill: `ui-qml-sandbox-route-local-api-via-backend`.
+- **Two-chains gotcha** (0.2.1 testnet): new chain genesis `1785920400000` (2026-08-05 09:00 UTC, live);
+  retired pre-fork genesis `1782808200000` is halted-but-still-peer-served + longer → a fresh node doing
+  peer discovery can adopt the dead chain (logos-blockchain#3265, closed). Our nodes are on the new chain.
+- The hardfork-watch "STILL OLD" alert was a **false transient** during the node-down-for-reinstall
+  window (watcher conflates "node down" with "old chain"); auto-corrected next tick.
+- Fork's `release.yml` had an artifact name/pattern bug (fixed in `9754d23`): release job downloaded
+  `logos-module-*` but build uploaded `logos-blokchain-ui-*`; now both `logos-blockchain-ui-*`.
