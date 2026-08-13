@@ -163,8 +163,8 @@ A = [
 
 # ── Android apps (F-Droid repo) ──
 ANDROID = [
- dict(title='Node Remote', ver='0.1.1', bytes=28151043, cat='Internet',
-      apk='node-remote-0.1.1-arm64.apk',
+ dict(title='Node Remote', ver='0.1.2', bytes=28151043, cat='Internet',
+      apk='node-remote-0.1.2-arm64.apk',
       iconpath=os.path.expanduser('/home/alisher/basecamp/modules/node-remote/node-remote-bc/node_remote_ui/icons/node-remote.png'),
       desc='Watch and control your Logos blockchain node from your phone, over Tor.'),
  dict(title='Peers', ver='0.9.15', bytes=48728940, cat='Communication',
