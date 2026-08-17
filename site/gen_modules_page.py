@@ -116,7 +116,7 @@ A = [
       iconpath=os.path.expanduser('~/docs-assistant/qml/icon.png'),
       desc='Search the Basecamp & Logos docs and blog inside Basecamp — on-device keyword search with a full-screen Markdown reader. Linux + macOS.'),
  dict(bucket='catalog', repo='logos-blockchain-ui', title='Blockchain node', primary='logos_node_1click', cat='Blockchain', icon='',
-      desc='Community 1-click fork — run a Logos testnet node in one click. Live Blend status, a durable proposals tab and a node settings modal.'),
+      desc='Community 1-click fork — run a Logos testnet node in one click. Leader Rewards with a permanent claims ledger reconciled against the chain, live Blend status and a durable proposals tab.'),
  dict(bucket='catalog', repo='node-remote', title='Node Remote', primary='node_remote_ui', cat='Infrastructure', icon='',
       iconpath=os.path.expanduser('~/basecamp/modules/node-remote/node-remote-bc/node_remote_ui/icons/node-remote.png'),
       desc='Watch and control your Logos blockchain node from your phone, over Tor. Pairs with the Node Remote Android app by QR; the desktop half publishes a client-authorized onion. Linux + macOS.'),
