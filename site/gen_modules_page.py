@@ -119,7 +119,7 @@ A = [
       desc='Community 1-click fork — run a Logos testnet node in one click. Leader Rewards with a permanent claims ledger reconciled against the chain, live Blend status and a durable proposals tab.'),
  dict(bucket='catalog', repo='node-remote', title='Node Remote', primary='node_remote_ui', cat='Infrastructure', icon='',
       iconpath=os.path.expanduser('~/basecamp/modules/node-remote/node-remote-bc/node_remote_ui/icons/node-remote.png'),
-      desc='Watch and control your Logos blockchain node from your phone, over Tor. Pairs with the Node Remote Android app by QR; the desktop half publishes a client-authorized onion. Linux + macOS.'),
+      desc='Watch and control your Logos blockchain node from your phone, over Tor. Leader rewards with a claims ledger shared with the Blockchain node module, so both surfaces agree — and claiming from the phone. Pairs by QR; the desktop half publishes a client-authorized onion. Linux + macOS.'),
  dict(bucket='github', repo='ia-basecamp', title='Archive', primary='archive_ui', cat='Archiving', icon='archive.png',
       desc='Follow curated LEZ channels and preserve their Internet Archive collections to Logos Storage.'),
  dict(bucket='catalog', repo='receiver-basecamp', title='Receiver', primary='receiver_ui', cat='Streaming', icon='',
@@ -166,10 +166,10 @@ A = [
 
 # ── Android apps (F-Droid repo) ──
 ANDROID = [
- dict(title='Node Remote', ver='0.1.2', bytes=28151043, cat='Internet',
-      apk='node-remote-0.1.2-arm64.apk',
+ dict(title='Node Remote', ver='0.2.0', bytes=28185283, cat='Internet',
+      apk='node-remote-0.2.0-arm64.apk',
       iconpath=os.path.expanduser('/home/alisher/basecamp/modules/node-remote/node-remote-bc/node_remote_ui/icons/node-remote.png'),
-      desc='Watch and control your Logos blockchain node from your phone, over Tor.'),
+      desc='Watch and control your Logos blockchain node from your phone, over Tor. See your leader rewards and claim them.'),
  dict(title='Peers', ver='0.9.15', bytes=48728940, cat='Communication',
       apk='peers-0.9.15-arm64.apk',
       iconpath=os.path.expanduser('~/projects/peers-tech-landing/apple-touch-icon.png'),
