@@ -129,7 +129,7 @@ A = [
       desc='Discover and listen to decentralized Logos radio broadcasts over the delivery module, via Tor. Bundles its own ffplay + Tor, zero-install (Linux + macOS).'),
  dict(bucket='catalog', repo='booth-basecamp', title='Booth (xRadio)', primary='radio_ui', cat='Streaming', icon='',
       iconpath=os.path.expanduser('~/basecamp/modules/booth-basecamp/radio_ui/icons/radio.png'),
-      desc='Broadcast your own decentralized station — RTMP to MediaMTX, announced over the delivery module.'),
+      desc='Broadcast your own decentralized station: play a folder of audio files or stream from OBS, announced over the delivery module via Tor. Bundles its own MediaMTX, Tor and ffmpeg, zero-install (Linux + macOS).'),
  dict(bucket='catalog', repo='lez-stark-verify', title='ZK Guess', primary='zk_guess_game', cat='Game', icon='',
       mdir=os.path.expanduser('~/lez-stark-verify/module/zk-guess-game'),
       iconpath=os.path.expanduser('~/lez-stark-verify/module/zk-guess-game/qml/icon.png'),
