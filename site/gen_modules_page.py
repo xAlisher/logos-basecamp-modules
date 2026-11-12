@@ -120,6 +120,8 @@ A = [
  dict(bucket='catalog', repo='node-remote', title='Node Remote', primary='node_remote_ui', cat='Infrastructure', icon='',
       iconpath=os.path.expanduser('~/basecamp/modules/node-remote/node-remote-bc/node_remote_ui/icons/node-remote.png'),
       desc='Watch and control your Logos blockchain node from your phone, over Tor. Leader rewards with a claims ledger shared with the Blockchain node module, so both surfaces agree — and claiming from the phone. Pairs by QR; the desktop half publishes a client-authorized onion. Linux + macOS.'),
+ dict(bucket='catalog', repo='feedback-app', title='Feedback', primary='feedback_ui', cat='Messaging', icon='feedback.png',
+      desc='Send feedback to the Basecamp team from inside Basecamp: a quick report or a short questionnaire, sealed so only the team can read it, over the Logos Messaging testnet. Linux + macOS.'),
  dict(bucket='github', repo='ia-basecamp', title='Archive', primary='archive_ui', cat='Archiving', icon='archive.png',
       desc='Follow curated LEZ channels and preserve their Internet Archive collections to Logos Storage.'),
  dict(bucket='catalog', repo='receiver-basecamp', title='Receiver', primary='receiver_ui', cat='Streaming', icon='',
